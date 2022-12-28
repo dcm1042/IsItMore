@@ -1,0 +1,21 @@
+
+
+body{
+    margin:0;
+    text-align: center;
+
+}
+h1,h2,h3,h4,h5{
+    margin: 15px;
+}
+nav{
+    display:flex;
+    padding: 20px;
+    background-color: rgb(40,40,40);
+    color:white;
+    margin-bottom: 30px;
+
+}
+nav p{
+    margin:0px
+}

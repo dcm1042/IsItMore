@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/49f2d8b763.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Login</title>
+    <style>
+        body{
+        background-color: rgb(40,40,60);
+        }
+        *{
+                margin-top:20px;
+}
+    .content{
+        background-color: rgba(200,200,200,0.5);
+        padding: 30px;
+        border-radius: 20px;
+        width: 50%;
+        margin: auto;
+    }
+    button{
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+
+  <div class="content">
+      <h2>Log In</h2>
+      <h5>or <a href="{% url 'signup' %}">Sign Up!</a></h5>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+      </form>
+  </div>
+
+</body>
+

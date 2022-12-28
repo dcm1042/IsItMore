@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/49f2d8b763.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Home</title>
+    <style>
+        h2{
+            margin-top:30px
+        }
+        .icons a{
+         margin-left: 2vw;
+         color:white;
+        }
+        img{
+            width:100%;
+            height:100%;
+        }
+
+        .icons {
+            margin-left: auto;
+            margin-right: 0;
+            display:flex;
+            justify-content:right;
+        }
+        .content{
+            display:flex;
+            justify-content:center;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .option1{
+            width: 20%;
+            margin-left: 10%;
+            margin-right: 5%;
+
+            display:block;
+            filter: drop-shadow(10px 10px 10px #A4BBFF);
+        }
+        .option2{
+            width: 20%;
+            margin-right: 10%;
+            margin-left: 5%;
+            display:inline-block;
+            filter: drop-shadow(10px 10px 10px #A4BBFF);
+        }
+        content button{
+            width: 100%;
+            height: 20vw;
+        }
+        #next{
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 1.5vw;
+            background-color: rgb(40,50,50);
+            color: rgb(250,230,230);
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div>
+           <p>{{user.username}}</p>
+        </div>
+        <div class="icons">
+            <a href=""> <i class="fa-solid fa-user"></i> </a>
+            <a href="{% url 'logout' %}"> <i class="fa-solid fa-right-to-bracket"></i> </a>
+        </div>
+     </nav>
+    <h1>Is it more</h1>
+    <div class="content">
+
+        <form action="" class="option1" method="post">
+        {% csrf_token %}
+
+            <h2> {{option1}} </h2>
+            <button type="submit" id="btn1" name="btn" value="option1"><img src="{{image1}}" alt="Image1"></button>
+            <div id="myDiv1">
+                <h4>{{votes1text}}</h4>
+            </div>
+         </form>
+        <h2> or more</h2>
+        <form action="" class="option2" method="post">
+        {% csrf_token %}
+            <h2> {{option2}} </h2>
+            <button type="submit" id="btn2" name="btn" value="option2" ref="" ><img src="{{image2}}" alt="Image2"></button>
+            <div id="myDiv2">
+                <h4>{{votes2text}}</h4>
+            </div>
+        </form>
+    </div>
+    <form action="" class="Next" method="post" style="display:{{nxtbtn}}">
+        {% csrf_token %}
+        <button type="submit" id="next" name="btn" value="next">Next</button>
+    </form>
+
+
+
+
+
+
+
+</body>
+</html>
